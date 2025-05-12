@@ -144,7 +144,7 @@ http://localhost:8501
 | ------------- | ------------------------------------- |
 | **Frontend**  | ReactJS, Streamlit                    |
 | **Backend**   | FastAPI, Python                       |
-| **LLMs**      | GPT-4, GLM-4, BART, Replicate, Ollama |
+| **LLMs**      | GPT-4, GLM-4, Replicate, Ollama |
 | **Rendering** | PlantUML, Graphviz                    |
 | **Packaging** | pip, virtualenv                       |
 
@@ -155,12 +155,6 @@ http://localhost:8501
 
 * **Zhentong Ye** ([zye@kean.edu](mailto:zye@kean.edu))
 * **Yanwu Lang** ([langy@kean.edu](mailto:langy@kean.edu))
-
----
-
-## 📄 License
-
-Distributed under the MIT License. See `LICENSE` for more information.
 
 ---
 
