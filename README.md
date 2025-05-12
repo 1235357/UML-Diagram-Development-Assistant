@@ -96,7 +96,7 @@ pip install streamlit requests
 pip install openai replicate llama-cpp-python plantweb
 
 # 5. Run application
-streamlit run UML_Diagram_development_Assistant_V0.9.py
+streamlit run UML_Diagram_development_Assistant_V1.0.py
 ````
 
 ### 🌐 Access Interface
