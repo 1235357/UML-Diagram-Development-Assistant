@@ -82,7 +82,7 @@ This project was developed as part of **CPS 3962: Object-Oriented Analysis and D
 - **API Integration**: FastAPI-based RESTful backend connecting front-end with inference engine
 
 ### 2. Frontend Architecture
-- Developed using **ReactJS**
+- Developed using **streamlit**
 - Chatbox UI with:
   - Scenario input
   - Diagram rendering panel
