@@ -1,41 +1,21 @@
 
-# UML Diagram Development Assistant
+# AI-Powered UML Diagram Generation Assistant
 
-A conversational assistant that leverages Large Language Models (LLMs) to support Object-Oriented Analysis and Design (OOAD) through interactive UML diagram generation, visualization, and iterative refinement.
+## Description
 
----
+Modern software design relies heavily on UML diagrams to communicate system structure and behavior, but creating and updating these diagrams manually is labor-intensive and error-prone. This project addresses that challenge by providing a conversational AI assistant that transforms **natural language requirements** into fully rendered UML diagrams. By integrating state-of-the-art **large language models (LLMs)** with tools like PlantUML and Graphviz, users can simply describe their system in plain English and receive professionally formatted diagrams in response. The assistant supports iterative refinement: users can ask follow-up questions or request edits to continually improve the design without starting from scratch. This streamlines the software modeling workflow, bridging the gap between informal requirements and formal UML representation, and ultimately improving design efficiency and accuracy. The source code is available on [GitHub](https://github.com/1235357/UML-Diagram-Development-Assistant).
 
-## 🧠 Project Overview
+## Features
 
-The **UML Diagram Development Assistant** bridges the gap between **natural language requirements** and **formal UML modeling**. It harnesses the capabilities of Large Language Models (e.g., GPT-4, GLM-4) and integrates **PlantUML** rendering, offering users a hands-on environment to:
+* **Natural Language Interface:** Users describe system components and relationships in plain English. The assistant parses these inputs and generates corresponding UML code.
+* **Multi-Diagram Support:** Initially focused on class diagrams, the system now supports **sequence diagrams**, **use case diagrams**, **component diagrams**, and more, enabling comprehensive modeling of software systems.
+* **Iterative Refinement:** Maintains conversation context so users can request incremental changes (e.g., “add a new class inheriting from Person”) and the assistant updates the existing diagram accordingly.
+* **Syntax Validation & Auto-Correction:** The system automatically checks generated UML code and fixes common syntax errors (for example, correcting `class Child <--(Parent)` to `class Child extends Parent`) to ensure valid diagrams.
+* **Multi-View Projections:** Users can view different aspects of complex diagrams without full regeneration. For instance, switching to an *inheritance view* or highlighting *associations* across classes, all enabled by the **ProjectionManager** module.
+* **Persistent Session State:** All interactions and diagram revisions are saved in the session, so the conversation history and previous diagram states are retained for seamless multi-turn design sessions.
+* **High-Quality Rendering:** Diagrams are rendered in web-friendly formats (SVG, PNG) using rendering engines (PlantUML, Graphviz, Plantweb) for clear visualization. Users can customize output format and styling.
+* **Save/Load Capabilities:** Diagrams and session histories can be exported, loaded, or versioned (planned feature), supporting teamwork and documentation.
 
-- Generate UML class diagrams from textual descriptions
-- Refine diagrams interactively through conversation
-- Explore multiple diagram projections (e.g., inheritance, aggregation)
-- Edit PlantUML code and preview changes instantly
-
-This project was developed as part of **CPS 3962: Object-Oriented Analysis and Design** at **Kean University**, under the mentorship of **Dr. Hamza Djigal**.
-
----
-
-## 🎯 Objectives
-
-- 📐 Generate UML diagrams from user-defined scenario descriptions via natural language
-- 🧑‍💻 Provide an interactive, iterative, and conversational design experience
-- 🎞️ Render and visualize UML diagrams in real-time using PlantUML
-- ✅ Ensure model validity through adherence to OOAD principles such as encapsulation, inheritance, and modularity
-- 🚀 Lower the entry barrier for model-driven development in AI, Cloud, and Big Data environments
-
----
-
-## ✨ Key Features
-
-- **Conversational AI Interface**: Natural language chat-based interaction to design UML diagrams
-- **Multi-Model Support**: Choose among OpenAI, Replicate, BigModel (GLM-4), Ollama, and more
-- **Real-time Rendering**: Convert PlantUML code into visual diagrams with instant feedback
-- **Projections and Perspectives**: View diagrams from different analytical lenses (e.g., structure, association, composition)
-- **Code & Diagram Sync**: Edit PlantUML code in real-time with live preview
-- **Session History**: Auto-log conversation context and diagrams for revision and continuation
 
 ---
 
@@ -68,132 +48,109 @@ This project was developed as part of **CPS 3962: Object-Oriented Analysis and D
 ![](https://img.plantuml.biz/plantuml/svg/ZLTDRziu4BqRy7yWqiF6XsAxkrXWuHos-V1s0oI14JS5UcJ4aSGDHMf9oeuB__ZEKA8-BANk8KOilXdEl7ap8tzqdbjV5OgTFTtViHl9CyiBTWDRKAOiG7jswPn45FxtdbqcNcwbtqVWsNmsd_t2DdwlW3dmNkhCiTHOzenVm38BNF1dgT1cFdClKfUS_4S_LpnvoQofjBWs2gtUfH_Ilz9q4cgi0Dl0Va_-W3y_l0txdClaHODpxBSf44PV62t6jwSfJyIFB7ukY07wH2mRAi19ZwisnWcCjMPtcXZ-TjmFniDFa15WKmoG1bffY4P3E-bpvdQoK1opdyyEJmxi0VrHmlFPyZ99Y9I-x5gfNP3FmsLPAfbmBur6k-Mjbbvo9Ry1uzq9GmCFQB2yHh5v88UDlq-WmGOGUc9Ia-iaGEyC5qn0oYlbMM9qAhEgHjOtDw4kDw0WyGmpo2gU0IkC07Kgk2dqaSF8aTJO9AK5_3pbzKsJw7f51u7E21NW4YlBm59fJL4IhyjDzLn8tpqOtVhkJcQvlr8LBAyWaxhrbxLyaZLLBvXZkx_CPumTxcBYzvGuMzSO70a7Ebu-GeBYOHN6szsEpzSMK5z0TTY2TVK5-CN3QuFOW1OuIlwlm7dc3KuQOX744TNiSdqR3EXlbqkSIUSRZweeC0QqTwNH3lvUCEdO-LTm2yA504AWBO8bUQLVBfhJfr84MTtMYiPGgIGjEC0mlkQ-1xE84InNhzxoX0HMb0eBraGvi8oij7TpJ1LU8Qa23GLuAnDtCV0Nwv6WkpPVcRBpBoWLCJZ6MOmTZIdx7FGWwOqto3dKBa6CdO9oNJveS6Uo2AV8KYvLPTlqPLe7Gc9WFEDI1qaWQ_zYHgeLmOrqfU9xTjQfummrBKX-njPvDemFz93ZO31sFrICQ9mHmKRZiYAYI2kr94VAVeEZbeGHJwqq1dYVuvpCygDMhCiGcm5pZrFjDi9Y687EVumjk0_btb98bF6e1eYZ3FRCxRNdhtXWBGJ-7HLS0mWG4RaAgW6KaiOHZKrsliR-y3WHVlraUPblvRT5Wwq_YOx70AR-S5KOo6cb9kI2xfjfsaMvbQwYsHJd9g6EHDCt0rnJ5WNj73PiX4VXTEHrua4AaVx_wdpPFTTeHsyaXoxwtdap7YQAsASn3ewoCqobYWKCoC-MQuUH55Fb6EU7uvSPAt5Eub2OieWfThfinaFJ-JqLqHJ0ZTIqUsoLffwjQ5kjnT6Fs2yITd4-Jo29gvg1Bl79eL2lfnuxVb_2G3H7BHNC7k5z7UHm-NTkeaHZIg1pMiN3GDiRshHYOesZ4Jupk0nk894ExrWRgVtKvAhtsLTGokoM4-XkUDL4uVQIQViUCqNJIk02nQVzDTP4Ks_NTVUSWY6l6xw57_cyCJkjmcj9ByKwaslSXL9NiEY5YtEkd-MeAjsWVJ3rW9dO2sU3TZoIr2DWWmzIZAyEDfo8_b7ldM74m1GlRHRTMw4fwVj7FC6V8zy1)
 
 
+## Technology Stack
 
-## 🧱 System Architecture
+* **Frontend:** [Streamlit](https://streamlit.io) (Python) – an open-source framework for building interactive web apps. All UI elements (text input, image display, buttons) are built in Streamlit for rapid development and easy deployment.
+* **Backend:** Python (3.8+) with [FastAPI](https://fastapi.tiangolo.com/) – a modern, high-performance web framework for building APIs. The backend handles user requests, invokes LLM APIs, and processes UML generation. Uvicorn (ASGI server) runs the FastAPI application.
+* **LLM Integration:** Supports multiple large language models. For example, OpenAI’s GPT-4 and Zhipu AI’s GLM-4 are used to translate text prompts into PlantUML code. The modular `LanguageModelApiClient` interfaces with any REST-based LLM API.
+* **Diagram Rendering:**
 
-### 1. LLM Inference Pipeline
-- **Data Preparation**: Annotated scenario descriptions + UML mappings
-- **Fine-Tuning** (optional): Extend base LLMs (e.g., BART, GPT) for PlantUML generation
-- **Inference Equation**:
+  * **PlantUML** – an open-source UML tool that uses simple text descriptions to generate a variety of UML diagrams. We use PlantUML to convert code into graphical diagrams.
+  * **Graphviz** – for rendering custom graph layouts. Graphviz is open-source graph visualization software that takes text-based graph descriptions and produces diagrams in formats like SVG.
+  * **Plantweb** – a Python client library that interfaces with PlantUML servers to produce high-quality PNG/SVG output.
+* **Libraries & Tools:**
 
-  \[
-  P(t_i \mid t_{<i}) = \text{LLM}(t_1, t_2, \dots, t_{i-1})
-  \]
+  * `plantuml-encoder` – encodes PlantUML text into URL-safe strings for server rendering.
+  * Regex/pattern-matching libraries – for syntax checking and auto-correction in the `DiagramInterpreterEngine`.
+  * Standard Python libraries (`time`, `perf_counter_ns`) for performance measurement and logging.
 
-- **API Integration**: FastAPI-based RESTful backend connecting front-end with inference engine
+## Installation
 
-### 2. Frontend Architecture
-- Developed using **streamlit**
-- Chatbox UI with:
-  - Scenario input
-  - Diagram rendering panel
-  - PlantUML code editor
-  - Model configuration sidebar
 
-### 3. Backend Components
-- **UMLDiagramGenerationApp**: Coordinates user interactions and rendering pipeline
-- **LanguageModelApiClient**: Manages inference calls across different LLM providers
-- **DiagramInterpreter**: Converts descriptions into diagrams using PlantUML
-- **ProjectionManager**: Filters UML views by inheritance, association, etc.
-- **ConversationDataStorage**: Logs and retrieves session data
-
----
-
-## 🔧 Installation Guide
-
-### 📌 Prerequisites
-
-- Python 3.8+
-- `pip` package manager
-- Internet access for model inference APIs
-
-### 🛠️ Setup Instructions
-
-```bash
 # 1. Clone repository
+   ```bash
 git clone https://github.com/yourusername/UML-Diagram-Development-Assistant.git
 cd UML-Diagram-Development-Assistant
+```
+
 
 # 2. (Optional) Create virtual environment
+   ```bash
 python3 -m venv venv
 source venv/bin/activate  # Linux/macOS
 # venv\Scripts\activate     # Windows
+```
 
 # 3. Install core dependencies
+   ```bash
 pip install streamlit requests
+```
 
 # 4. Optional: Add support for specific LLM APIs
+   ```bash
 pip install openai replicate llama-cpp-python plantweb
+```
 
 # 5. Run application
+   ```bash
 streamlit run UML_Diagram_development_Assistant_V1.0.py
-````
-
-### 🌐 Access Interface
-
-Open your browser and navigate to:
-
-```
-http://localhost:8501
 ```
 
----
+   This will launch the app locally (usually at `http://localhost:8501`).
 
-## 🧭 Application Workflow
+## Usage
 
-### Step 1: Start a Conversation
+Upon launching the app, users see a text input box for entering requirements or commands. For example, typing a prompt like:
 
-* Select a language model from the sidebar
-* Enter a natural language description (e.g., "A university has students and professors...")
+```
+"Create a class diagram for a library system with classes Library, Book, and Member. Members can borrow Books. Include attributes and methods for each class."
+```
 
-### Step 2: Diagram Generation
+will prompt the assistant to generate the corresponding PlantUML code and render a class diagram showing `Library`, `Book`, and `Member` classes with relationships. The generated diagram appears below the prompt. Users can then refine the design by entering follow-up instructions, such as “make the Book class inherit from a Publication class” or “add a dueDate attribute to Book”. The assistant uses the previous context to update the diagram in place.
 
-* The assistant interprets your input
-* PlantUML code is generated and visualized
+The UI provides buttons to **save** the current diagram (exporting the PlantUML code and image) or **load** a previously saved session. All conversation history is visible in the side panel, so past prompts and diagram versions can be revisited. This conversational workflow lets users iteratively build and improve their UML models without manually editing diagram code.
 
-### Step 3: Iterative Refinement
+## Architecture Overview
 
-* Update the scenario or diagram through conversation
-* Use projection filters to focus on inheritance, composition, etc.
+The system is organized into modular components:
 
-### Step 4: Editing and Customization
+* **LanguageModelApiClient:** Connects to external LLM services. It sends user prompts and context to the LLM (e.g. GPT-4 or GLM-4) and receives generated UML code. This module handles prompt construction and manages conversation context internally.
+* **DiagramInterpreterEngine:** Parses and renders the UML code. It validates syntax, fixes common errors (using regex-based matchers), and invokes PlantUML/Graphviz to generate diagrams. The engine ensures the output is correct and semantically consistent.
+* **SessionStateManager:** Tracks all messages and diagram states in a session. It stores detailed metadata (role, content, source) for each interaction, preserving the evolving design state across turns. This enables true conversational continuity and incremental updates.
+* **ProjectionManager:** Offers alternative views of a diagram. For a complex model, users can switch to an inheritance hierarchy view or focus on associations without regenerating from scratch. The `ProjectionManager` applies filters or transformations (e.g. “show only inheritance edges”) to the current diagram code and rerenders it.
 
-* Modify PlantUML code directly in the editor
-* Preview changes in real-time
+Each component is implemented as a Python class (for example, `ConversationDataStorage`, `DiagramInterpreterEngine`, etc.), making the architecture extensible. Together, they realize a fluent interface where natural-language commands flow from the user, through the LLM client and interpreter, to the final rendered UML image.
 
-### Step 5: Session Management
+## Iterative Development
 
-* Your diagrams and conversations are auto-logged
-* Resume from previous sessions at any time
+We developed the assistant in two major phases. In the **initial prototype**, the frontend was built with React/Node.js and the backend with Python/Express/FastAPI. It could only reliably generate basic **class diagrams**. Sequence or use-case diagrams often failed to render, and a mixed Node/Python stack led to compatibility issues and deployment headaches. Crucially, the prototype lacked multi-turn context: if the user requested a change, the assistant could not reference the previous diagram, resulting in disconnected outputs. These limitations demonstrated the concept but showed that substantial improvements were needed.
 
----
+In the **final version**, we overhauled the architecture for coherence and power. The entire app was rewritten in Python using **Streamlit** for the UI. This unification eliminated cross-language issues and simplified maintenance. We introduced a robust session manager so that conversation context persists across prompts. We also greatly expanded UML support: the assistant can now handle **sequence, use-case, activity,** and **component diagrams**, not just class diagrams. Diagram rendering was upgraded via the Plantweb library for high-quality SVG/PNG output. Under the hood, the new version organized functionality into specialized classes (as noted above), enabling advanced features like syntax error correction and multi-view projections. User feedback was used continuously, and each iteration refined the system’s capabilities. The result is a streamlined design partner: a tool that grows its understanding as the user’s description grows, allowing UML designs to evolve naturally through dialogue.
 
-## 🧩 Technologies Used
+## Contributors
 
-| Layer         | Technologies                          |
-| ------------- | ------------------------------------- |
-| **Frontend**  | ReactJS, Streamlit                    |
-| **Backend**   | FastAPI, Python                       |
-| **LLMs**      | GPT-4, GLM-4, Replicate, Ollama |
-| **Rendering** | PlantUML, Graphviz                    |
-| **Packaging** | pip, virtualenv                       |
+* **Yanwu Lang** – Department of Mathematics, Wenzhou-Kean University, China ([langy@kean.edu](mailto:langy@kean.edu))
+* **Zhentong Ye** – Department of Mathematics, Wenzhou-Kean University, China ([zye@kean.edu](mailto:zye@kean.edu))
+
+## License
+
+This project is released under the **MIT License**. See the [LICENSE](https://opensource.org/licenses/MIT) file for details.
+
+## Future Work
+
+Planned enhancements include:
+
+* **Expanded Diagram Types & Customization:** Add support for state diagrams, activity diagrams, etc., and allow customization of styles (layouts, colors, fonts).
+* **Smart Completion:** Automatically infer and add missing elements when input is incomplete (e.g. adding default attributes or relationships) to speed up modeling.
+* **Advanced LLM Integration:** Incorporate more language models and fine-tune prompts so the assistant better understands complex requirements and ambiguous user language.
+* **Real-Time Collaboration:** Enable multiple users to jointly edit diagrams online with version control, supporting team-based design sessions.
+* **Mobile & Cross-Platform Support:** Optimize the interface for tablets and smartphones so designers can sketch UML diagrams on the go.
+* **Code Analysis Integration:** Analyze source code (Java, Python, C++, etc.) to auto-generate initial UML diagrams or suggest updates, bridging the gap from code to design.
+* **Performance & Scalability:** Optimize backend processing and consider distributed deployment to handle larger models and more users without delay.
+
+These enhancements will make the assistant even more powerful and adaptable to real-world software engineering workflows.
 
 
----
-
-## 🧑‍🤝‍🧑 Contributors
-
-* **Zhentong Ye** ([zye@kean.edu](mailto:zye@kean.edu))
-* **Yanwu Lang** ([langy@kean.edu](mailto:langy@kean.edu))
-
----
-
-## 🔗 Additional Resources
-
-* 📘 [PlantUML Class Diagram Docs](https://plantuml.com/class-diagram)
-* 🧭 [UML Class Diagram Tutorial](https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-class-diagram-tutorial/)
-* 📙 [OOAD Principles Overview](https://www.oodesign.com/)
-* 🧪 [BART\_PlantUML Paper](https://arxiv.org/abs/2106.11037)
 
 ---
 
